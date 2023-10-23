@@ -4,7 +4,7 @@ from pathlib import Path
 import os
 import locale
 
-locale.setlocale(locale.LC_ALL, 'en_IN')
+## locale.setlocale(locale.LC_ALL, 'en_IN')
 
 sub_directory = ''
  
