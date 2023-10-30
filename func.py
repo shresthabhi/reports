@@ -57,7 +57,7 @@ def convert_col_to_int_astype(data, columns):
         # data[col] = data[col].fillna(pd.NA)
     return data
 
-def read_large_csv(url = ''):
+def read_large_csv(url = '', **kwargs):
     output = "data.csv"
     
     file_id = url.split("/d/")[1].split("/")[0]
@@ -66,4 +66,4 @@ def read_large_csv(url = ''):
     modified_url = base_url + file_id
     gdown.download(modified_url, output, quiet=False)
 
-    return pd.read_csv(output)
+    return pd.read_csv(output, **kwargs)
