@@ -11,6 +11,7 @@ sub_directory = ''
 image_orders = Path(os.path.join(sub_directory, "orders_icon.png"))
 image_gmv = Path(os.path.join(sub_directory, "money_icon.png"))
 image_affiliate_charge = image_gmv
+image_gst = Path(os.path.join(sub_directory, "gst_icon.png"))
 image_roi = Path(os.path.join(sub_directory, "roi_icon.png"))
 image_video =  Path(os.path.join(sub_directory, "video_icon.png"))
 
@@ -30,10 +31,10 @@ def generateSummaryBody(width, height, meta_data = None, video = False):
     
     if video:
         main_data = getSummaryVideoTable(widthList[1], heightList[1], meta_data)
-        bottomPadding = 470
+        bottomPadding = 440
     else:
         main_data = getSummaryTable(widthList[1], heightList[1], meta_data)
-        bottomPadding = 500
+        bottomPadding = 470
     
     summary_table_structure = Table([
         ['', "Summary [1st September - 15th October]", ''],
@@ -68,12 +69,13 @@ def getSummaryTable(width, height, meta_data):
     gmv = locale.format_string("%d", meta_data["gmv"], grouping=True)
     roi = locale.format_string("%d", meta_data["roi"], grouping=True)
     affiliate_charge = locale.format_string("%d", meta_data["fee"], grouping=True)
+    gst_charge =  locale.format("%d", meta_data["gst"], grouping = True)
     
     heightList = [
         height * 25 /100,
         height * 25 /100,
         height * 25 /100,
-        height * 25 /100,    
+        height * 25 /100,
     ]
     
     rowHeight = 30
@@ -105,11 +107,17 @@ def getSummaryTable(width, height, meta_data):
                     , width = widthList[1]
                     , kind = 'proportional')
     
+    ImageGST = Image(image_gst
+                     , height = rowHeight
+                     , width = widthList[1]
+                     , kind = 'proportional')
+    
     
     summary_table = Table([
         ['',ImageOrders,'# Orders',n_orders,''],
         ['',ImageGMV,'GMV',gmv,''],
         ['',ImageAffiliateCharges,'Affiliate Charges',affiliate_charge,''],
+        ['',ImageGST,"GST",gst_charge,""],
         ['',ImageROI,'RoI',roi,''],
     ], widthList, rowHeight)
        
@@ -139,6 +147,7 @@ def getSummaryVideoTable(width, height, meta_data):
     gmv = locale.format_string("%d", meta_data["gmv"], grouping=True)
     roi = locale.format_string("%d", meta_data["roi"], grouping=True)
     affiliate_charge = locale.format_string("%d", meta_data["fee"], grouping=True)
+    gst_charge =  locale.format("%d", meta_data["gst"], grouping = True)
     
     sub_directory = ''
     
@@ -181,12 +190,17 @@ def getSummaryVideoTable(width, height, meta_data):
                       , height = rowHeight
                       , width = widthList[1]
                       , kind = 'proportional')
+    ImageGST = Image(image_gst
+                     , height = rowHeight
+                     , width = widthList[1]
+                     , kind = 'proportional')
     
     summary_table = Table([
         ['',ImageViedo, "# Vidoes", n_videos,''],
         ['',ImageOrders,'# Orders',n_orders,''],
         ['',ImageGMV,'GMV',gmv,''],
         ['',ImageAffiliateCharges,'Affiliate Charges',affiliate_charge,''],
+        ['',ImageGST,"GST",gst_charge,""],
         ['',ImageROI,'RoI',roi,''],
     ], widthList, rowHeight)
        

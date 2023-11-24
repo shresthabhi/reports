@@ -2,9 +2,15 @@ from reportlab.lib import colors
 from reportlab.platypus import Table, TableStyle, Image, Paragraph
 from pathlib import Path
 
-def generateFooter(widht, height):
+def generateFooter(widht, height, kind = None, meta_data = None):
     
-    text = ""
+    
+    if kind == 'orders':
+        text = "Affiliate chrages is inclusive of GST"
+    else:
+        text = ""
+    
+    
     background_color = colors.HexColor('#580A46')
     
     
