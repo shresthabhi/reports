@@ -3,7 +3,7 @@ from reportlab.platypus import Table, Image, TableStyle
 from pathlib import Path
 import requests
 from io import BytesIO
-import io
+import os
 import locale
 
 def get_content_from_url(url):
