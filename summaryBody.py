@@ -1,8 +1,29 @@
 from reportlab.lib import colors
 from reportlab.platypus import Table, Image, TableStyle
 from pathlib import Path
-import os
+import requests
+from io import BytesIO
+import io
 import locale
+
+def get_content_from_url(url):
+    """
+    Fetches content from a URL and returns a file-like object.
+
+    Args:
+    url: The URL from which to fetch the content.
+
+    Returns:
+    A BytesIO object containing the content fetched from the URL.
+    """
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raises an HTTPError if the HTTP request returned an unsuccessful status code
+
+        return BytesIO(response.content)
+    except requests.RequestException as e:
+        print(f"An error occurred while fetching content from the URL: {e}")
+        return None
 
 ## locale.setlocale(locale.LC_ALL, 'en_IN')
 
@@ -15,12 +36,12 @@ sub_directory = os.path.join(os.getcwd(),'report')
 # image_roi = Path(os.path.join(sub_directory, Path("roi_icon.png")))
 # image_video =  Path(os.path.join(sub_directory, Path("video_icon.png")))
 
-image_orders = Path("https://drive.google.com/uc?export=view&id=1f8h0-YY_nYJq6ZsUKt5GT_1TVjjR5191")
-image_gmv = Path("https://drive.google.com/uc?export=view&id=1f41yDyF84VHrXqGlba0xcUH4whh5dmJD")
+image_orders = get_content_from_url("https://drive.google.com/uc?export=view&id=1f8h0-YY_nYJq6ZsUKt5GT_1TVjjR5191")
+image_gmv = get_content_from_url("https://drive.google.com/uc?export=view&id=1f41yDyF84VHrXqGlba0xcUH4whh5dmJD")
 image_affiliate_charge = image_gmv
-image_gst = Path("https://drive.google.com/uc?export=view&id=1f6X-HXVfC6iVGGWP-DifyVLpNR_xFXnx")
-image_roi = Path("https://drive.google.com/uc?export=view&id=1f2jV1jjibbT_btRfm-HsqaiuW6jlFRph")
-image_video =  Path("https://drive.google.com/uc?export=view&id=1f7Z5eTt8jy9hHA8dVZixkuB7H1BWxYTf")
+image_gst = get_content_from_url("https://drive.google.com/uc?export=view&id=1f6X-HXVfC6iVGGWP-DifyVLpNR_xFXnx")
+image_roi = get_content_from_url("https://drive.google.com/uc?export=view&id=1f2jV1jjibbT_btRfm-HsqaiuW6jlFRph")
+image_video =  get_content_from_url("https://drive.google.com/uc?export=view&id=1f7Z5eTt8jy9hHA8dVZixkuB7H1BWxYTf")
 
 
 def generateSummaryBody(width, height, meta_data = None, video = False):
