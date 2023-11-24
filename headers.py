@@ -10,7 +10,7 @@ def generateHeader(width, height):
         width * 80 / 100
     ]
     
-    MEESHO_IMAGE_PATH = os.path.join(os.getcwd(),Path('meesho_logo.png'))
+    MEESHO_IMAGE_PATH = os.path.join(os.getcwd(),'report','Path('meesho_logo.png'))
     MEESHO_IMAGE = Image(MEESHO_IMAGE_PATH
                          , widthList[0]
                          , height*0.8
