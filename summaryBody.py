@@ -8,12 +8,20 @@ import locale
 
 sub_directory = os.path.join(os.getcwd(),'report')
  
-image_orders = Path(os.path.join(sub_directory, Path("orders_icon.png")))
-image_gmv = Path(os.path.join(sub_directory, Path("money_icon.png")))
+# image_orders = Path(os.path.join(sub_directory, Path("orders_icon.png")))
+# image_gmv = Path(os.path.join(sub_directory, Path("money_icon.png")))
+# image_affiliate_charge = image_gmv
+# image_gst = Path(os.path.join(sub_directory, Path("gst_icon.png")))
+# image_roi = Path(os.path.join(sub_directory, Path("roi_icon.png")))
+# image_video =  Path(os.path.join(sub_directory, Path("video_icon.png")))
+
+image_orders = Path("https://drive.google.com/uc?export=view&id=1f8h0-YY_nYJq6ZsUKt5GT_1TVjjR5191")
+image_gmv = Path("https://drive.google.com/uc?export=view&id=1f41yDyF84VHrXqGlba0xcUH4whh5dmJD")
 image_affiliate_charge = image_gmv
-image_gst = Path(os.path.join(sub_directory, Path("gst_icon.png")))
-image_roi = Path(os.path.join(sub_directory, Path("roi_icon.png")))
-image_video =  Path(os.path.join(sub_directory, Path("video_icon.png")))
+image_gst = Path("https://drive.google.com/uc?export=view&id=1f6X-HXVfC6iVGGWP-DifyVLpNR_xFXnx")
+image_roi = Path("https://drive.google.com/uc?export=view&id=1f2jV1jjibbT_btRfm-HsqaiuW6jlFRph")
+image_video =  Path("https://drive.google.com/uc?export=view&id=1f7Z5eTt8jy9hHA8dVZixkuB7H1BWxYTf")
+
 
 def generateSummaryBody(width, height, meta_data = None, video = False):
     print(image_video)
