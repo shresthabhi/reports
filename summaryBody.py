@@ -8,12 +8,12 @@ import locale
 
 sub_directory = os.path.join(os.getcwd(),'report')
  
-image_orders = Path(os.path.join(sub_directory, "orders_icon.png"))
-image_gmv = Path(os.path.join(sub_directory, "money_icon.png"))
+image_orders = Path(os.path.join(sub_directory, Path("orders_icon.png")))
+image_gmv = Path(os.path.join(sub_directory, Path("money_icon.png")))
 image_affiliate_charge = image_gmv
-image_gst = Path(os.path.join(sub_directory, "gst_icon.png"))
-image_roi = Path(os.path.join(sub_directory, "roi_icon.png"))
-image_video =  Path(os.path.join(sub_directory, "video_icon.png"))
+image_gst = Path(os.path.join(sub_directory, Path("gst_icon.png")))
+image_roi = Path(os.path.join(sub_directory, Path("roi_icon.png")))
+image_video =  Path(os.path.join(sub_directory, Path("video_icon.png")))
 
 def generateSummaryBody(width, height, meta_data = None, video = False):
     
