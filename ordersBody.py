@@ -11,7 +11,7 @@ def capitalize_columns(columns):
     
     return final_columns
 
-def generateOrdersBody(width, height, data):  
+def generateOrdersBody(width, height, data, meta_data = None):  
     
     n_rows = data.shape[0]+1
     
@@ -28,8 +28,13 @@ def generateOrdersBody(width, height, data):
     
     color = colors.gray
     
+    if meta_data:
+        heading = f"Orders [{meta_data['min_date']} - {meta_data['max_date']}]"
+    else:
+        heading = 'Orders'
+    
     ordersBody_table = Table([
-        ['', 'Orders',''],
+        ['', heading,''],
         ['', generateOrdersTable(widthList[1], heightList[1], data), '']
     ]
     , widthList, heightList)

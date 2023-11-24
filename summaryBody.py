@@ -36,7 +36,7 @@ def generateSummaryBody(width, height, meta_data = None, video = False):
         bottomPadding = 500
     
     summary_table_structure = Table([
-        ['', "Summary", ''],
+        ['', "Summary [1st September - 15th October]", ''],
         ['', main_data, ''],
     ], widthList, heightList)
     
