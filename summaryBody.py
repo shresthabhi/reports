@@ -6,7 +6,7 @@ import locale
 
 ## locale.setlocale(locale.LC_ALL, 'en_IN')
 
-sub_directory = ''
+sub_directory = os.path.join(os.getcwd(),'report')
  
 image_orders = Path(os.path.join(sub_directory, "orders_icon.png"))
 image_gmv = Path(os.path.join(sub_directory, "money_icon.png"))
