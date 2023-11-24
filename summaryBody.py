@@ -45,7 +45,6 @@ image_video =  Path(os.path.join(sub_directory, Path("video_icon.png")))
 
 
 def generateSummaryBody(width, height, meta_data = None, video = False):
-    print(image_video)
     widthList = [
         
         width * 5 / 100, # Left padding
@@ -88,7 +87,6 @@ def generateSummaryBody(width, height, meta_data = None, video = False):
 
 
 def getSummaryTable(width, height, meta_data):
-    print(image_video)
     
     # Orders
     # GMV
@@ -165,7 +163,6 @@ def getSummaryTable(width, height, meta_data):
     return summary_table
 
 def getSummaryVideoTable(width, height, meta_data):
-    print(image_video)
     
     # Orders
     # GMV
