@@ -64,9 +64,11 @@ def generateSummaryBody(width, height, meta_data = None, video = False):
     else:
         main_data = getSummaryTable(widthList[1], heightList[1], meta_data)
         bottomPadding = 470
+
+    summary_text = "Summary [{from} - to{}]".format(from = meta_data["min_date"], to = meta_data["max_date"])
     
     summary_table_structure = Table([
-        ['', "Summary [1st September - 15th October]", ''],
+        ['', summary_text, ''],
         ['', main_data, ''],
     ], widthList, heightList)
     
